@@ -12,8 +12,7 @@ function App() {
     { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
   ];
 
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+
   const [filter, setFilter] = useState('');
   const [contacts, setContacts] = useState(() => {
     return (
@@ -38,8 +37,7 @@ function App() {
       };
       return [newContact, ...contacts];
     });
-    setName('');
-    setNumber('');
+    
   };
   const handleFilterChange = e => {
     setFilter(e.currentTarget.value);
@@ -57,7 +55,7 @@ function App() {
 
   return (
     <>
-      <ContactForm onSubmit={handleAddContact} name={name} number={number} />
+      <ContactForm onSubmit={handleAddContact}/>
       <ContactList
         contacts={getVisibleContacts(contacts, filter)}
         onRemove={handleDeleteContact}
